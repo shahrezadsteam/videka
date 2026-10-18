@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Videka — Telegram-бот для скачивания видео</title>
+  <meta name="description" content="Videka — Telegram-бот для скачивания видео из TikTok, Instagram, YouTube Shorts и Pinterest. Отправьте публичную ссылку боту и получите видео в доступном качестве.">
+  <meta name="theme-color" content="#07111f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Videka — скачивание видео в Telegram">
+  <meta property="og:description" content="TikTok, Instagram, YouTube Shorts и Pinterest — отправьте ссылку в Telegram-бот.">
+  <style>
+    :root { color-scheme: dark; --bg:#07111f; --panel:#0d1b2d; --text:#f4f8ff; --muted:#a9bad0; --blue:#22b8ff; --blue2:#326cff; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif; background:radial-gradient(circle at 80% 0%,#12356a 0,transparent 36%),var(--bg); color:var(--text); }
+    .wrap { width:min(1080px,92%); margin:auto; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:24px 0; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; font-size:1.25rem; letter-spacing:.2px; }
+    .logo { width:44px; height:44px; display:grid; place-items:center; border-radius:14px; background:linear-gradient(135deg,var(--blue),var(--blue2)); box-shadow:0 0 28px #22b8ff55; font-size:25px; }
+    a { color:inherit; }
+    .small-link { color:var(--muted); text-decoration:none; font-size:.95rem; }
+    .hero { display:grid; grid-template-columns:1.15fr .85fr; gap:44px; align-items:center; padding:70px 0 76px; }
+    .tag { display:inline-flex; border:1px solid #24476b; background:#10233a; color:#9edfff; padding:8px 12px; border-radius:999px; font-size:.88rem; }
+    h1 { font-size:clamp(2.5rem,6vw,4.8rem); line-height:1.02; letter-spacing:-.055em; margin:22px 0; }
+    h1 span { color:var(--blue); }
+    .lead { color:var(--muted); font-size:1.13rem; line-height:1.7; max-width:620px; }
+    .cta { display:inline-flex; align-items:center; justify-content:center; gap:10px; background:linear-gradient(100deg,var(--blue),var(--blue2)); color:white; text-decoration:none; font-weight:800; padding:16px 23px; border-radius:14px; margin-top:22px; box-shadow:0 12px 35px #1676ff40; transition:transform .15s ease; }
+    .cta:hover { transform:translateY(-2px); }
+    .note { color:#7f93ad; font-size:.86rem; margin-top:14px; }
+    .visual { display:grid; place-items:center; min-height:320px; }
+    .orb { width:min(340px,80vw); aspect-ratio:1; border-radius:50%; display:grid; place-items:center; background:radial-gradient(circle at 30% 25%,#174e88,#0b1b30 65%); border:2px solid #1c8cff; box-shadow:0 0 55px #087dff42,inset 0 0 55px #087dff25; position:relative; }
+    .robot { font-size:clamp(7rem,17vw,10rem); filter:drop-shadow(0 10px 22px #0008); }
+    .download { position:absolute; bottom:18%; right:9%; background:#087fff; border:4px solid #bdeaff; border-radius:20px; width:100px; height:82px; display:grid; place-items:center; font-size:3rem; box-shadow:0 0 25px #22b8ff70; }
+    section { padding:45px 0; }
+    h2 { font-size:clamp(1.8rem,4vw,2.6rem); margin:0 0 14px; letter-spacing:-.03em; }
+    .section-lead { color:var(--muted); line-height:1.7; max-width:700px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px; }
+    .card { background:linear-gradient(145deg,#10223a,#0b1727); border:1px solid #1c3552; border-radius:20px; padding:24px; }
+    .icon { font-size:2rem; margin-bottom:14px; }
+    .card h3 { margin:0 0 8px; }
+    .card p { color:var(--muted); line-height:1.65; margin:0; }
+    .platforms { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+    .platforms span { padding:10px 14px; background:#10233a; border:1px solid #25415f; border-radius:12px; color:#dceaff; }
+    .final { text-align:center; padding:64px 24px; border:1px solid #1c4770; border-radius:28px; background:radial-gradient(circle at 50% 0%,#143a67,#0b1728 70%); margin:45px auto 65px; }
+    .final p { color:var(--muted); line-height:1.7; }
+    footer { border-top:1px solid #172a40; padding:25px 0 35px; color:#8295ad; font-size:.88rem; display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    @media(max-width:760px) { .hero { grid-template-columns:1fr; padding:45px 0; gap:10px; } .visual { min-height:260px; } .orb { width:250px; } .grid { grid-template-columns:1fr; } header { padding:18px 0; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><div class="logo">↓</div><span>VIDEKA</span></div>
+      <a class="small-link" href="https://t.me/videka7tro_bot">Открыть в Telegram ↗</a>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <span class="tag">Видеозагрузчик в Telegram</span>
+          <h1>Видео —<br><span>в пару кликов.</span></h1>
+          <p class="lead">Отправь ссылку на ролик в Telegram-бот Videka. Бот попробует скачать видео в максимальном доступном качестве и отправить его прямо в чат.</p>
+          <a class="cta" href="https://t.me/videka7tro_bot">▶ Открыть бота</a>
+          <p class="note">Работает с публичными ссылками, доступными без входа в аккаунт.</p>
+        </div>
+        <div class="visual" aria-label="Иллюстрация бота для скачивания видео">
+          <div class="orb"><div class="robot">🤖</div><div class="download">↓</div></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Поддерживаемые платформы</h2>
+        <p class="section-lead">Скопируй ссылку на отдельный ролик, отправь её боту и дождись результата. Доступность зависит от платформы и конкретного видео.</p>
+        <div class="platforms"><span>♪ TikTok</span><span>◎ Instagram</span><span>▶ YouTube / Shorts</span><span>📌 Pinterest</span></div>
+      </section>
+
+      <section>
+        <h2>Как пользоваться</h2>
+        <div class="grid">
+          <article class="card"><div class="icon">🔗</div><h3>1. Скопируй ссылку</h3><p>Открой публичный ролик и скопируй его ссылку.</p></article>
+          <article class="card"><div class="icon">💬</div><h3>2. Отправь боту</h3><p>Перейди в Telegram и отправь ссылку в чат с Videka.</p></article>
+          <article class="card"><div class="icon">📥</div><h3>3. Получи видео</h3><p>Бот скачает доступную версию и отправит файл, если это позволяют настройки и лимиты Telegram.</p></article>
+        </div>
+      </section>
+
+      <section class="final">
+        <h2>Попробуй Videka</h2>
+        <p>Запусти бота и отправь ссылку на видео.</p>
+        <a class="cta" href="https://t.me/videka7tro_bot">Открыть @videka7tro_bot</a>
+      </section>
+    </main>
+    <footer>
+      <span>© <span id="year">2026</span> Videka</span>
+      <span>Используй сервис только для контента, который разрешено скачивать.</span>
+    </footer>
+  </div>
+</body>
+</html>
